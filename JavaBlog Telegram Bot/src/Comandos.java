@@ -86,7 +86,17 @@ public class Comandos {
 				enviar.montarMsg(captura_dmensagens.up(), "CATEGORIA CADASTRADA COM SUCESSO!");
 				
 				msgcaptura = "";
-			}//fim do if else
+			}else if(msgcaptura.equals("/cadastrar_bem")  ){
+				
+			}else if(msgcaptura.equals("/listar_localizacao") ){
+				
+				local.listarloc();
+				msgcaptura = "";
+				
+			}else if( msgcaptura.equals("/listar_categorias") ) {
+				categoria.listarcat();
+				msgcaptura = "";
+			}
 			
 			
 		

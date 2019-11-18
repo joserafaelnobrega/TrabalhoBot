@@ -64,7 +64,49 @@ public class Cadastro_Local {
 				File arquivos = afile[i];
 				
 				enviar.montarMsg( captura_dmensagens.up() , arquivos.getName());
+				
+				  try {
+				  FileReader arq = new FileReader(arquivos);
+			      BufferedReader lerArq = new BufferedReader(arq);
+			 
+			      String linha = lerArq.readLine(); 
+			      int cont = 0;
+			     while(cont != 1) {
+			      
+						      char simbolo = '#';
+						      char[] palavra = linha.toCharArray();
+						    
+						      for (int k = 0; k < palavra.length; k++) {
+						          if (palavra[k] == simbolo) {
+						              cont++;
+						          }
+						      }
+			      
+			      
+			      enviar.montarMsg( captura_dmensagens.up() , linha);
+					 
+			        linha = lerArq.readLine(); // lê da segunda até a última linha
+			      
+			      
+			     }
+			      
+
+			    	  
+			      
+			 
+			     
+				  } catch (IOException e) {
+				        System.err.printf("Erro na abertura do arquivo: %s.\n",
+				          e.getMessage());
+				    }
+				
+				
+				
+				
+				
+				
 				}
+			 
 			
 		}
 }
