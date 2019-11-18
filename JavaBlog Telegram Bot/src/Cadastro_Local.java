@@ -41,7 +41,7 @@ public class Cadastro_Local {
 			
 			arq = new FileWriter( "locais/"+ this.Local_nome);
 			gravarArq = new PrintWriter( arq);
-			gravarArq.printf(this.Descricao_local);
+			gravarArq.printf("Descrição: " + this.Descricao_local);
 			gravarArq.printf("#");
 			arq.close();
 			}   catch (IOException e) {

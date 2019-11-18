@@ -4,6 +4,7 @@
 public class Comandos {
 	
 	private Cadastro_Local local = new Cadastro_Local();
+	private Cadastro_Categoria categoria = new Cadastro_Categoria();
 	private String comandos = "/cadastrar_localizacao\n/cadastrar_categ\n/cadastrar_bem \n/listar_localizacao \n/listar_categorias\n/listar_bens_de_uma_localizacao\n"
 			+ "/buscar_bem_por_codigo\n/buscar_bem_por_nome\n/buscar_bem_por_descricao\n/movimentar_bem\n/gerar_relatorio";
 	
@@ -49,11 +50,46 @@ public class Comandos {
 			
 			enviar.montarMsg(captura_dmensagens.up(), "LOCALIZAÇÃO CADASTRADA!!!" );
 			
+			
+			
 			msgcaptura = "";
-			}//fim if
+			//cadastra a categoria
+			}else if(msgcaptura.equals("/cadastrar_categ") ) {
+				
+				enviar.montarMsg(captura_dmensagens.up(), "digite o nome da categoria:");
+				
+				
+				do {
+					
+					categoria.setCategoria(captura_dmensagens.recebido());
+					
+					}while(categoria.getCategoria().equals(""));
+					
+				enviar.montarMsg(captura_dmensagens.up(), "digite a descrição:");
+				
+				do {
+					
+					categoria.setDescricaoCategoria(captura_dmensagens.recebido());
+					
+					}while(categoria.getDescriçãoCategoria().equals(""));
+				
+				enviar.montarMsg(captura_dmensagens.up(), "digite o codigo da categoria:");
+				
+				do {
+					
+					categoria.setCodigocat(captura_dmensagens.recebido());
+					
+					}while(categoria.getCodigocat().equals(""));
+				
+				categoria.criar();
+				
+				enviar.montarMsg(captura_dmensagens.up(), "CATEGORIA CADASTRADA COM SUCESSO!");
+				
+				msgcaptura = "";
+			}//fim do if else
 			
 			
-			
+		
 			
 		
 }//fim metodo

@@ -15,15 +15,15 @@ public class Cadastro_Categoria{
 		this.categoria_nome = categoria;
 	}
 	
-	public String getLocal() {
+	public String getCategoria() {
 		return this.categoria_nome;
 	}
 	
-	public void setDescricaoLocal(String Descri) {
+	public void setDescricaoCategoria(String Descri) {
 		this.Descricao_categoria = Descri;
 	}
 	
-	public String getDescriçãoLocal() {
+	public String getDescriçãoCategoria() {
 		return this.Descricao_categoria;
 	}
 	
@@ -36,12 +36,12 @@ public class Cadastro_Categoria{
 	}
 	
 //metodo que cria o arquivo e escreve nele 
-	public void criar() throws IOException {
+	public void criar()  {
 		try {
 			arq = new FileWriter("categorias/" +this.categoria_nome);
 			gravarArq = new PrintWriter( arq);
-			gravarArq.printf(this.Descricao_categoria);
-			gravarArq.printf(this.codigo);
+			gravarArq.printf("Descrição: " + this.Descricao_categoria + "\n");
+			gravarArq.printf("Codigo: " + this.codigo);
 			gravarArq.printf("#");
 			arq.close();
 			}   catch (IOException e) {
@@ -53,7 +53,7 @@ public class Cadastro_Categoria{
 	
 
 	
-	public void listarcat() throws IOException {
+	public void listarcat()  {
 		Enviarmsg enviar = new Enviarmsg();
 		Receber_msg captura_dmensagens = new Receber_msg();
 		File file = new File("categorias"); // por o nome do diretorio ali
